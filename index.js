@@ -22,12 +22,14 @@ function matchStoryId(headRef) {
 async function main() {
   try {
 
+    const {
+      head_ref,
+      event,
+      event_name
+    } = JSON.parse(core.getInput('github-context'))
+
     if (event_name === 'pull_request') {
 
-      const {
-        head_ref,
-        event,
-      } = JSON.parse(core.getInput('github-context'))
       console.log('🚀 ~ file: index.js ~ line 28 ~ main ~ payload', core.getInput('github-context'))
 
       const storyId = matchStoryId(head_ref)
