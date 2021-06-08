@@ -30,8 +30,6 @@ async function main() {
 
     if (event_name === 'pull_request') {
 
-      console.log('🚀 ~ file: index.js ~ line 28 ~ main ~ payload', core.getInput('github-context'))
-
       const storyId = matchStoryId(head_ref)
 
       const data = {
@@ -47,8 +45,6 @@ async function main() {
           'Clubhouse-Token': process.env.NODE_ENV === 'dev' ? process.env.CLUBHOUSE_ACTIONS_API_TOKEN : core.getInput('clubhouse-token'),
         }
       });
-
-      console.log(addComment)
     }
 
     return;
