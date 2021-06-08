@@ -7,9 +7,12 @@ inputs:
   amplify-project-id:
     description: 'Project ID from the amplify console'
     required: true  
-  github-context:
+  head-ref:
     description: 'Passed in automatically'
     required: true      
+  created-at:
+    description: 'Passed in automatically'
+    required: true          
 runs:
   using: 'node12'
   main: 'index.js'

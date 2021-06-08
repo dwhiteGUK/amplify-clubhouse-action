@@ -24,16 +24,14 @@ async function main() {
 
     core.info(JSON.stringify(core.getInput('github-context'), null, 2))
 
-    const {
-      head_ref,
-      event,
-    } = core.getInput('github-context')
+    const headRef = core.getInput('head-ref')
+    const createdAt = core.getInput('created-at')
 
 
-    const storyId = matchStoryId(head_ref)
+    const storyId = matchStoryId(headRef)
 
     const data = {
-      "created_at": event.pull_request.created_at,
+      "created_at": createdAt,
       text: `Preview available on https://pr-${event.number}.${process.env.NODE_ENV === 'dev' ? process.env.AMPLIFY_PROJECT_ID : core.getInput('amplify-project-id')}.amplifyapp.com`
     }
     core.info(`The data is ${data}`)
