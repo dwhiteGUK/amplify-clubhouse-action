@@ -22,13 +22,14 @@ function matchStoryId(headRef) {
 async function main() {
   try {
 
-    core.info(JSON.stringify(JSON.parse(core.getInput('event')), null, 2))
+    core.info(`REF: ${core.getInput('ref')}`)
+    //core.info(JSON.stringify(JSON.parse(core.getInput('event')), null, 2))
 
     const head_ref = core.getInput('ref')
-    const { ref, number, pull_request } = JSON.parse(core.getInput('event'))
+    const { number, pull_request } = JSON.parse(core.getInput('event'))
 
 
-    const storyId = matchStoryId(ref)
+    const storyId = matchStoryId(head_ref)
 
     const data = {
       "created_at": pull_request.created_at,
