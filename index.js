@@ -26,7 +26,7 @@ async function main() {
       head_ref,
       event,
       event_name
-    } = core.getInput('github-context')
+    } = core.getInput('github-context').GITHUB_CONTEXT
 
     if (event_name === 'pull_request') {
 
