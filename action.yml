@@ -6,7 +6,10 @@ inputs:
     required: true
   amplify-project-id:
     description: 'Project ID from the amplify console'
-    required: true       
+    required: true  
+  github-context:
+    description: 'Project ID from the amplify console'
+    required: true      
 outputs:
   time: # id of output
     description: 'The time we greeted you'
