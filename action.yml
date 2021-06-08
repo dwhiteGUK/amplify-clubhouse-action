@@ -8,11 +8,11 @@ inputs:
     description: 'Project ID from the amplify console'
     required: true  
   github-context:
-    description: 'Project ID from the amplify console'
+    description: 'Passed in automatically'
     required: true      
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  job:
+    description: 'Passed in automatically'
+    required: true      
 runs:
   using: 'node12'
   main: 'index.js'
