@@ -35,7 +35,7 @@ async function main() {
       "created_at": pull_request.created_at,
       text: `Preview available on https://pr-${number}.${process.env.NODE_ENV === 'dev' ? process.env.AMPLIFY_PROJECT_ID : core.getInput('amplify-project-id')}.amplifyapp.com`
     }
-    core.info(`The data is ${data}`)
+    core.info(`The data is ${JSON.stringify(data, null, 2)}`)
 
     const addComment = await fetch(`https://api.clubhouse.io/api/v3/stories/${storyId}/comments`, {
       method: 'post',
@@ -46,7 +46,7 @@ async function main() {
       }
     });
 
-    core.info(`Response: ${addComment}`);
+    core.info(`Response: ${JSON.stringify(addComment, null, 2)}`);
 
 
     return;
