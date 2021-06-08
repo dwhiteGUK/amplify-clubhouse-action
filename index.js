@@ -21,12 +21,13 @@ function matchStoryId(headRef) {
 
 async function main() {
   try {
+    console.log(core.getInput('github-context'));
 
     const {
       head_ref,
       event,
       event_name
-    } = core.getInput('github-context').GITHUB_CONTEXT
+    } = core.getInput('github-context')
 
     if (event_name === 'pull_request') {
 
@@ -36,6 +37,9 @@ async function main() {
         "created_at": event.pull_request.created_at,
         text: `Preview available on https://pr-${event.number}.${process.env.NODE_ENV === 'dev' ? process.env.AMPLIFY_PROJECT_ID : core.getInput('amplify-project-id')}.amplifyapp.com`
       }
+      console.log('🚀 ~ file: index.js ~ line 39 ~ main ~ data', data)
+
+      console.log(`The data: ${payload}`);
 
       const addComment = await fetch(`https://api.clubhouse.io/api/v3/stories/${storyId}/comments`, {
         method: 'post',
@@ -45,6 +49,8 @@ async function main() {
           'Clubhouse-Token': process.env.NODE_ENV === 'dev' ? process.env.CLUBHOUSE_ACTIONS_API_TOKEN : core.getInput('clubhouse-token'),
         }
       });
+
+      console.log(`Reponse: ${addComment}`);
     }
 
     return;
