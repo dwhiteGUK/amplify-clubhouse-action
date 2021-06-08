@@ -26,7 +26,7 @@ async function main() {
     core.info(JSON.stringify(core.getInput('event'), null, 2))
 
     const head_ref = core.getInput('ref')
-    const { number, pull_request } = core.getInput('event')
+    const { number, pull_request } = JSON.parse(core.getInput('event'))
 
 
     const storyId = matchStoryId(head_ref)
