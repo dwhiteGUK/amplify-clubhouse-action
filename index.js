@@ -3,7 +3,7 @@ const github = require('@actions/github');
 const fetch = require('node-fetch');
 const dotenv = require('dotenv').config()
 
-const { head_ref, event_name, event } = require('./mock/event.json')
+//const { head_ref, event_name, event } = require('./mock/event.json')
 
 function matchStoryId(headRef) {
   if (!headRef) {
@@ -23,6 +23,12 @@ async function main() {
   try {
 
     if (event_name === 'pull_request') {
+
+      const {
+        head_ref,
+        event,
+      } = JSON.parse(core.getInput('github-context'))
+      console.log('🚀 ~ file: index.js ~ line 28 ~ main ~ payload', core.getInput('github-context'))
 
       const storyId = matchStoryId(head_ref)
 
