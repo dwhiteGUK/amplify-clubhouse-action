@@ -21,7 +21,9 @@ function matchStoryId(headRef) {
 
 async function main() {
   try {
-    console.log(core.getInput('github-context'));
+
+    core.info(`Job status is ${core.getInput('github-context')} `)
+    core.info(`Job status is ${core.getInput('job')} `)
 
     const {
       head_ref,
