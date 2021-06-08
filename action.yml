@@ -10,9 +10,6 @@ inputs:
   github-context:
     description: 'Passed in automatically'
     required: true      
-  job:
-    description: 'Passed in automatically'
-    required: true      
 runs:
   using: 'node12'
   main: 'index.js'
