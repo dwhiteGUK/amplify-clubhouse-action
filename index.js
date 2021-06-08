@@ -26,7 +26,7 @@ async function main() {
       head_ref,
       event,
       event_name
-    } = JSON.parse(core.getInput('github-context'))
+    } = core.getInput('github-context')
 
     if (event_name === 'pull_request') {
 
