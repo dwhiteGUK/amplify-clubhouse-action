@@ -4,6 +4,12 @@ inputs:
   clubhouse-token:  # id of input
     description: 'Clubhouse API token'
     required: true
+  amplify-project-id:
+    description: 'Project ID from the amplify console'
+    required: true  
+  event-payload:
+    description: 'Project ID from the amplify console'
+    required: true      
 outputs:
   time: # id of output
     description: 'The time we greeted you'
