@@ -6,13 +6,7 @@ inputs:
     required: true
   amplify-project-id:
     description: 'Project ID from the amplify console'
-    required: true  
-  head-ref:
-    description: 'Passed in automatically'
-    required: true      
-  created-at:
-    description: 'Passed in automatically'
-    required: true          
+    required: true         
 runs:
   using: 'node12'
   main: 'index.js'
